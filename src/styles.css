@@ -1,0 +1,73 @@
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #f6f8fb;
+  color: #111;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 22px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(20, 20, 30, 0.06);
+}
+h1 {
+  margin-top: 0;
+}
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6eef8;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.form button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #1f6feb;
+  color: white;
+  cursor: pointer;
+}
+.result-card {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fbfcff;
+  border-radius: 8px;
+}
+.answer {
+  white-space: pre-wrap;
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #eef2ff;
+}
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.doc-item {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #eef2ff;
+}
+.doc-content {
+  margin-top: 8px;
+  color: #444;
+}
+.error {
+  color: #b00020;
+  padding: 8px 0;
+}
+.note {
+  color: #666;
+  font-size: 13px;
+  margin-top: 8px;
+}
