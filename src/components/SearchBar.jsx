@@ -1,26 +1,42 @@
-import { Input } from "antd";
+import { Input, Space } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchResults } from "../features/searchSlice.js";
+import { clearResults, fetchResults } from "../features/searchSlice";
 
-export default function SearchBar() {
+const SearchBar = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    if (!query.trim()) return;
-    dispatch(fetchResults(query));
+    if (query.trim() !== "") {
+      dispatch(fetchResults(query));
+    }
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    // If input is cleared, reset the state
+    if (value.trim() === "") {
+      dispatch(clearResults());
+    }
   };
 
   return (
-    <Input.Search
-      placeholder="Search legal documents..."
-      enterButton="Search"
-      size="large"
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      onSearch={handleSearch}
-      style={{ width: "100%", marginBottom: "1rem" }}
-    />
+    <Space style={{ width: "100%", marginTop: 20 }}>
+      <Input.Search
+        placeholder="Search legal documents..."
+        value={query}
+        // onChange={(e) => setQuery(e.target.value)}
+        onChange={handleChange}
+        onSearch={handleSearch}
+        enterButton
+        allowClear
+        style={{ flex: 1 }}
+      />
+    </Space>
   );
-}
+};
+
+export default SearchBar;

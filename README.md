@@ -2,41 +2,37 @@
 
 ## **Project Overview**
 
-This frontend is a modern React interface that allows users to search and summarize their legal documents using the mock backend API. It is **fully warning-free** and professional with **Ant Design** components.
+This is the **frontend application** for the Legal Document Search Portal.  
+It provides a clean, modern interface to search and display legal documents and summaries.
+
+---
+
+## **Features**
+
+- Built with **React + Redux Toolkit + Ant Design**
+- Beautiful UI components with search bar & result cards
+- Responsive layout
+- Docker support for deployment
 
 ---
 
 ## **Tech Stack**
 
-- React 19
+- React.js (Vite)
 - Redux Toolkit
+- Ant Design (UI)
 - Axios
-- Ant Design
-- Vite
-
----
-
-## **Project Structure**
-
-```
-frontend/
-├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── components/
-│   │   ├── SearchBar.jsx
-│   │   └── ResultList.jsx
-│   ├── features/
-│   │   └── searchSlice.js
-│   └── store/
-│       └── index.js
-├── package.json
-└── package-lock.json
-```
+- Docker
 
 ---
 
 ## **Setup Instructions**
+
+### Clone the Repository
+
+```bash
+https://github.com/shadeshsaha/Legal-Document-Search-Portal-Frontend.git
+```
 
 ### 1️⃣ Navigate to frontend
 
@@ -50,7 +46,7 @@ cd Legal-Document-Search-Portal/frontend
 npm install
 ```
 
-### 3️⃣ Start development server
+### 3️⃣ Run Locally
 
 ```bash
 npm run dev
@@ -59,6 +55,28 @@ npm run dev
 ### 4️⃣ Access in Browser
 
 ```
+http://localhost:5173/
+```
+
+---
+
+### 🐳 Run with Docker
+
+### 1️⃣ Build Docker Image
+
+```bash
+docker build -t legal-frontend .
+```
+
+### 2️⃣ Run the Container
+
+```bash
+docker run -p 3000:3000 legal-frontend
+```
+
+### 3️⃣ Access the App
+
+```bash
 http://localhost:5173/
 ```
 
