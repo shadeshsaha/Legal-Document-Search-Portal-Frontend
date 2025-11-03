@@ -1,28 +1,24 @@
+import { Alert, Card, List, Spin } from "antd";
 import { useSelector } from "react-redux";
 
 export default function ResultList() {
   const { results, loading, error } = useSelector((state) => state.search);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
-  if (!results.length) return <p>No results yet.</p>;
+  
+  if (loading) return <Spin tip="Searching..." size="large" style={{ marginTop: "2rem" }} />;
+  if (error) return <Alert message="Error" description={error} type="error" showIcon />;
+  if (!results.length) return <Alert message="No results yet" type="info" showIcon />;
 
   return (
-    <ul style={{ listStyle: "none", padding: 0 }}>
-      {results.map((doc) => (
-        <li
-          key={doc._id}
-          style={{
-            marginBottom: "1rem",
-            padding: "1rem",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-          }}
-        >
-          <h3>{doc.title}</h3>
-          <p>{doc.summary}</p>
-        </li>
-      ))}
-    </ul>
+    <List
+      grid={{ gutter: 16, column: 1 }}
+      dataSource={results}
+      renderItem={(doc) => (
+        <List.Item>
+          <Card title={doc.title} hoverable style={{ border: "1px solid #f0f0f0", borderRadius: "8px" }} >
+            {doc.summary}
+          </Card>
+        </List.Item>
+      )}
+    />
   );
 }
